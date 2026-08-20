@@ -19,3 +19,4 @@ Download:
 
 Archive URL: `https://web.archive.org/web/20260820193427/https://bluebook.app.collegeboard.org/downloads/Bluebook%20Setup%200.9.724.exe`
 
+Deobfuscated clients: https://github.com/realjoshuau/bluebook-clients
