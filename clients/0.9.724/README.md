@@ -1,0 +1,5 @@
+# Bluebook Client 0.9.724
+
+Windows client SHA256: 7aaa0de6bcf0ba8af6ac3881b2eb482c60c3f439119c4da5a3c6b2cb497edbe1
+Internal "app-32.7z" SHA256: 4a9474461edad23a4df7af0df2e0ae817bdc055e67b6fd40629ac4431e82d685
+app.asar SHA256: d5a1b3794c660333576dcbd977094d232b4f81eacf76513f7e430cba0a9487ec
