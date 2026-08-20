@@ -4,6 +4,9 @@ Obviously, this is not to endorse or even encourage cheating.
 This project is just to reverse how it works for curiosity's sake.
 Absolutely work-in-progress. Focusing on the Windows version for now.
 
+>[!NOTE]
+> LLMs were used to assist in the reverse engineering process. Reverse Engineering was helped by Codex (GPT 5.6 "Sol" & 5.5) & Qwen 3.8 27B (with `pi`)
+
 This is current as of [Bluebook 0.9.724](clients/0.9.724/README.md)
 
 Bluebook is a web app, but depending on the platform uses different renderers & native code tricks to get native things done (such as locking down the system, webcam accesses, and anti-VM checks on Windows)
