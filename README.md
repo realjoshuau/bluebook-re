@@ -33,8 +33,17 @@ Things that need to be done:
   - macOS uses the ["Automatic Assessment Configuration" API](https://developer.apple.com/documentation/automaticassessmentconfiguration), and in general, BlueBook treats macOS as a more secure platform to test on due to tampering being significantly more obvious on this platform.
   - Windows uses a custom binary Node module [`win_app_tools.node`](win_app_tools.md) to lock down the machine, including terminating Windows Explorer & hooking into most shortcuts.
 - [X] "Integrity Worker"
+- [ ] Telemetry Worker
+- [ ] Repsonses Worker
+- [ ] Webcam Usage
 - [ ] On First Boot
 - [ ] On startup
 - [X] [Test Watermarking](WATERMARK.md)
 - [ ] Test Uploads
   - I was not able to catch this via an HTTP sniffer. Maybe some other form of upload?
+
+--- 
+
+All questions, comments should be directed to my email:
+
+realjoshuau at proton dot me
