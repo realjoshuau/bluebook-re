@@ -1,22 +1,40 @@
 # Bluebook Reverse Engineering
 
-Obviously, this is not to endorse or even encourage cheating. Bluebook is great - better than any other Lockdown-style browser I've used before and it makes testing less of a pain. This project is just to reverse how it works for curiosity's sake.
-Absolutely work-in-progress. Focusing on the macOS version as of now.
+Obviously, this is not to endorse or even encourage cheating.
+This project is just to reverse how it works for curiosity's sake.
+Absolutely work-in-progress. Focusing on the Windows version for now.
 
-Current Version: "Bluebook/905" (User Agent), "1.12.4" (macOS Version), "VSN-1.12.9 BT-2024-4-27 1:11" (Bluebook Internal), "ac8842221989527b7e75" (Internal Git Hash?)
+This is current as of [Bluebook 0.9.724](clients/0.9.724/README.md)
 
-Bluebook internally is a browser, but instead of wrapping Chromium (like Respondus does), it uses the internal WebView of macOS, and polyfills ES6 as necessary.
+Bluebook is a web app, but depending on the platform uses different renderers & native code tricks to get native things done (such as locking down the system, webcam accesses, and anti-VM checks on Windows)
+
+
+| Platform | Rendering Engine                  | Polyfills? | Trustability         |
+|----------|-----------------------------------|------------|----------------------|
+| macOS    | Internal WebView                  | Y          | Relatively OK        |
+| Windows  | Electron                          | Y          | Much less than macOS |
+| iPad     | Internal Webview                  | Y          | ?                    |
+| ChromeOS | It's literally a browser based OS | Y          | ?                    |
+
+(It always polyfills ES6 if necessary.)
+
+In general, Bluebook does not automatically close exams for security and/or "integrity violations" unless in very small specific circumstances such as:
+- Obvious Javascript modification
+- Obvious RDP (through Windows Terminal Services, NOT through Parsec or other third-party Remote Desktop software)
+- Obvious code injection or obvious "bad processes"
+- Obvious VM detection (NOTE: VM detection is two-fold and _suspected_ VMs will be flagged)
 
 Things that need to be done:
 
 - [ ] Telemetry
 - [ ] Test Data Packages
-- [x] Auth
+- [x] ~~Auth~~ (probably outdated?)
 - [ ] Lockdown Mode
-  - Only thing we know so far: it can bypass Lock Screen (!?) and pressing Command + (.) during a Lockdown Session (or within Assessment Mode as Bluebook calls it internally) will window the screen, showing a dark background with a gray radial gradient extending from the center of the screen into the edges.
-- [ ] "Integrity Worker"
+  - macOS uses the ["Automatic Assessment Configuration" API](https://developer.apple.com/documentation/automaticassessmentconfiguration), and in general, BlueBook treats macOS as a more secure platform to test on due to tampering being significantly more obvious on this platform.
+  - Windows uses a custom binary Node module [`win_app_tools.node`](win_app_tools.md) to lock down the machine, including terminating Windows Explorer & hooking into most shortcuts.
+- [X] "Integrity Worker"
 - [ ] On First Boot
 - [ ] On startup
-- [ ] The "Watermark" (colored-bars) placed onto every test.
+- [X] [Test Watermarking](WATERMARK.md)
 - [ ] Test Uploads
   - I was not able to catch this via an HTTP sniffer. Maybe some other form of upload?

@@ -1,4 +1,4 @@
-# On startup
+# On startup (SUPER OUTDATED, macOS ONLY)
 
 (Not First Boot)
 
